@@ -1,5 +1,5 @@
-&lt;?php
-require_once 'model/CalculatorModel.php';
+<?php
+require_once __DIR__ . '/../Modelo/CalculatorModel.php';
 
 class CalculatorController {
     private $model;
@@ -31,4 +31,4 @@ class CalculatorController {
         ];
     }
 }
-?&gt;
+?>

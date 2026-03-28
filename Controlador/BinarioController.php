@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Model/BinarioModel.php';
+require_once __DIR__ . '/../Modelo/BinarioModel.php';
 
 class BinarioController {
 

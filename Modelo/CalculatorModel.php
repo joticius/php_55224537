@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 session_start();
 
 class CalculatorModel {

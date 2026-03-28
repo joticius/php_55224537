@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Model/ArbolModel.php';
+require_once __DIR__ . '/../Modelo/ArbolModel.php';
 
 class ArbolController {
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Model/MatematicaModel.php';
+require_once __DIR__ . '/../Modelo/MatematicaModel.php';
 
 class MatematicaController {
 

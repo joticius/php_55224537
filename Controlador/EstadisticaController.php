@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Model/EstadisticaModel.php';
+require_once __DIR__ . '/../Modelo/EstadisticaModel.php';
 
 class EstadisticaController {
 

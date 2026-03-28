@@ -5,9 +5,9 @@
 //  Flujo MVC: Controller → Model → View
 // =============================================
 
-require_once __DIR__ . '/Controller/ArbolController.php';
+require_once __DIR__ . '/Controlador/ArbolController.php';
 
 $controller = new ArbolController();
 $datos = $controller->manejarPeticion();
 
-require_once __DIR__ . '/View/index.php';
+require_once __DIR__ . '/Vista/index.php';

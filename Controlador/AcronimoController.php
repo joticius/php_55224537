@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Model/AcronimoModel.php';
+require_once __DIR__ . '/../Modelo/AcronimoModel.php';
 
 class AcronimoController {
 

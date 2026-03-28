@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Model/ConjuntoModel.php';
+require_once __DIR__ . '/../Modelo/ConjuntoModel.php';
 
 class ConjuntoController {
 
