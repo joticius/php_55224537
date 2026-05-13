@@ -58,12 +58,11 @@ function renderArbol(array $d): void {
         ];
     }
     ?>
-    <div style="margin-top:1.5rem">
-      <p style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">
+    <div class="mt-1-5">
+      <p class="small-label small-label-accent">
         Árbol reconstruido · <?= htmlspecialchars($d['modo']) ?>
       </p>
-      <svg viewBox="0 0 <?=$svgW?> <?=$svgH?>" xmlns="http://www.w3.org/2000/svg"
-           style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px">
+      <svg viewBox="0 0 <?=$svgW?> <?=$svgH?>" xmlns="http://www.w3.org/2000/svg" class="svg-box">
 
         <!-- Aristas -->
         <?php foreach($nodos as $id=>$n): if($n['padre']!==null): ?>
@@ -111,11 +110,11 @@ function renderArbol(array $d): void {
     $recIn   = implode(' → ', inorden($nodos,$rootId));
     $recPost = implode(' → ', postorden($nodos,$rootId));
     ?>
-    <div style="margin-top:1rem;display:flex;flex-direction:column;gap:.5rem">
+    <div class="details-body-lg">
       <?php foreach([['Preorden',$recPre],['Inorden',$recIn],['Postorden',$recPost]] as [$l,$v]): ?>
-      <div style="display:flex;gap:1rem;font-size:.8rem;background:var(--bg);padding:.6em 1em;border-radius:7px;border:1px solid var(--border)">
-        <span style="color:var(--muted);min-width:70px"><?=$l?></span>
-        <span style="color:var(--accent)"><?= htmlspecialchars($v) ?></span>
+      <div class="info-panel">
+        <span class="label"><?=$l?></span>
+        <span class="value"><?= htmlspecialchars($v) ?></span>
       </div>
       <?php endforeach; ?>
     </div>

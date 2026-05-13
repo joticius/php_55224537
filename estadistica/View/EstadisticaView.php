@@ -36,7 +36,7 @@ function renderEstadistica(array $d): void {
 
     <?php if ($r): ?>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem">
+    <div class="result-grid-3">
       <?php
       $stats = [
         ['Promedio',  $fmt($r['promedio'])],
@@ -44,15 +44,15 @@ function renderEstadistica(array $d): void {
         ['Moda',      implode(', ', array_map($fmt, $r['moda']))],
       ];
       foreach ($stats as [$label,$val]): ?>
-      <div class="result animate" style="margin:0">
+      <div class="result animate m-0">
         <p class="result-label"><?= $label ?></p>
-        <p class="result-value" style="font-size:1.6rem"><?= $val ?></p>
+        <p class="result-value result-value-lg"><?= $val ?></p>
       </div>
       <?php endforeach; ?>
     </div>
 
-    <div style="margin-top:1.5rem">
-      <p style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem">
+    <div class="mt-1-5">
+      <p class="small-label">
         Tabla de frecuencias (n = <?= $r['n'] ?>)
       </p>
       <table>
@@ -67,7 +67,7 @@ function renderEstadistica(array $d): void {
           <td><?= $f ?></td>
           <td><?= $pct ?>%</td>
           <td><?php if($isModa): ?>
-            <span style="font-size:.68rem;color:var(--accent);border:1px solid var(--accent);padding:.1em .5em;border-radius:999px">moda</span>
+            <span class="panel-label badge-accent">moda</span>
           <?php endif; ?></td>
         </tr>
         <?php endforeach; ?>

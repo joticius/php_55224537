@@ -8,21 +8,6 @@ function renderBinario(array $d): void {
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Decimal → Binario · Taller PHP</title>
 <link rel="stylesheet" href="../shared.css">
-<style>
-.led-row { display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0; }
-.led {
-  width:52px; height:52px;
-  border-radius:8px;
-  display:flex; flex-direction:column;
-  align-items:center; justify-content:center;
-  font-family:var(--font-h); font-weight:800; font-size:1.4rem;
-  border: 2px solid;
-  transition: all .3s;
-}
-.led-on  { background:rgba(79,255,176,.15); border-color:#4fffb0; color:#4fffb0; box-shadow:0 0 18px rgba(79,255,176,.35); }
-.led-off { background:rgba(30,33,48,.5); border-color:var(--border); color:var(--muted); }
-.led small { font-size:.52rem; font-family:var(--font-m); font-weight:300; opacity:.6; margin-top:2px; }
-</style>
 </head>
 <body><div class="container">
 
@@ -51,14 +36,14 @@ function renderBinario(array $d): void {
     <div class="result animate">
       <p class="result-label">Resultado en binario</p>
       <p class="result-value"><?= htmlspecialchars($r['binario']) ?></p>
-      <p style="margin-top:.5rem;font-size:.78rem;color:var(--muted)">
+      <p class="text-muted mt-0-5">
         <?= $r['decimal'] ?><sub>10</sub> = <?= htmlspecialchars($r['binario']) ?><sub>2</sub>
       </p>
     </div>
 
     <!-- LED display -->
-    <div style="margin-top:1.25rem">
-      <p style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">Visualización LED</p>
+    <div class="mt-1-25">
+      <p class="small-label">Visualización LED</p>
       <div class="led-row">
         <?php
         $bits = $r['bits'];
@@ -76,11 +61,11 @@ function renderBinario(array $d): void {
     </div>
 
     <!-- Tabla de divisiones -->
-    <details style="margin-top:1rem">
-      <summary style="cursor:pointer;font-size:.78rem;color:var(--muted);letter-spacing:.05em">
+    <details class="mt-1">
+      <summary class="summary-toggle">
         Ver proceso de divisiones
       </summary>
-      <div style="margin-top:.8rem">
+      <div class="mt-0-5">
         <table>
           <thead><tr><th>Dividendo</th><th>Cociente</th><th>Residuo (bit)</th></tr></thead>
           <tbody>
@@ -88,12 +73,12 @@ function renderBinario(array $d): void {
           <tr>
             <td><?= $p['dividendo'] ?></td>
             <td><?= $p['cociente'] ?></td>
-            <td style="color:<?=$p['residuo']?'#4fffb0':'var(--muted)'?>;font-weight:600"><?= $p['residuo'] ?></td>
+            <td class="<?= $p['residuo'] ? 'bit-ok' : 'text-muted' ?>"><?= $p['residuo'] ?></td>
           </tr>
           <?php endforeach; ?>
           </tbody>
         </table>
-        <p style="font-size:.72rem;color:var(--muted);margin-top:.6rem">← Los residuos leídos de abajo hacia arriba forman el binario.</p>
+        <p class="text-muted mt-0-5">← Los residuos leídos de abajo hacia arriba forman el binario.</p>
       </div>
     </details>
     <?php endif; ?>

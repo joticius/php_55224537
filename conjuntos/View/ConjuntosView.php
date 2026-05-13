@@ -25,17 +25,17 @@ function renderConjuntos(array $d): void {
       <?php if ($d['error']): ?>
         <div class="error"><?= $d['error'] ?></div>
       <?php endif; ?>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-        <div class="form-group" style="margin:0">
+      <div class="grid-2">
+        <div class="form-group no-margin">
           <label for="a">Conjunto A</label>
           <input type="text" id="a" name="a" placeholder="ej. 1, 2, 3, 4" value="<?= $d['a'] ?>">
         </div>
-        <div class="form-group" style="margin:0">
+        <div class="form-group no-margin">
           <label for="b">Conjunto B</label>
           <input type="text" id="b" name="b" placeholder="ej. 3, 4, 5, 6" value="<?= $d['b'] ?>">
         </div>
       </div>
-      <button class="btn" type="submit" style="margin-top:1.25rem">Calcular →</button>
+      <button class="btn mt-1-25" type="submit">Calcular →</button>
     </form>
 
     <?php if ($r): ?>
@@ -46,7 +46,7 @@ function renderConjuntos(array $d): void {
     $inter  = $r['interseccion'];
     $bOnly  = $d['setB'] ? array_diff($d['setB'], $d['setA']) : [];
     ?>
-    <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-top:1.5rem">
+    <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" class="svg-box mt-1-5">
       <defs>
         <clipPath id="clipA"><circle cx="185" cy="100" r="95"/></clipPath>
         <clipPath id="clipB"><circle cx="335" cy="100" r="95"/></clipPath>
@@ -82,18 +82,18 @@ function renderConjuntos(array $d): void {
     </svg>
 
     <!-- Resultados -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+    <div class="result-grid-2">
       <?php
       $ops = [
-        ['A ∪ B (Unión)',            '#4fffb0', $r['union']],
-        ['A ∩ B (Intersección)',     '#6c63ff', $r['interseccion']],
-        ['A − B (Diferencia)',       '#ff9f4f', $r['difAB']],
-        ['B − A (Diferencia)',       '#ff4f6c', $r['difBA']],
+        ['A ∪ B (Unión)',            'badge-accent', $r['union']],
+        ['A ∩ B (Intersección)',     'badge-accent2', $r['interseccion']],
+        ['A − B (Diferencia)',       'badge-warning', $r['difAB']],
+        ['B − A (Diferencia)',       'badge-danger', $r['difBA']],
       ];
-      foreach($ops as [$label,$color,$set]): ?>
-      <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem">
-        <p style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:<?=$color?>;margin-bottom:.5rem"><?=$label?></p>
-        <p style="font-family:var(--font-m);font-size:.9rem;color:var(--text)"><?= $fmt($set) ?></p>
+      foreach($ops as [$label,$badgeClass,$set]): ?>
+      <div class="card-panel">
+        <p class="panel-label <?= $badgeClass ?>"><?= $label ?></p>
+        <p class="panel-text"><?= $fmt($set) ?></p>
       </div>
       <?php endforeach; ?>
     </div>

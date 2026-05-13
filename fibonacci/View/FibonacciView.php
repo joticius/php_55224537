@@ -44,18 +44,18 @@ function renderFibonacci(array $d): void { ?>
     <?php if ($d['serie'] !== null): ?>
     <div class="result animate">
       <p class="result-label">Serie de Fibonacci (<?= count($d['serie']) ?> términos)</p>
-      <div class="chips" style="margin-top:.5rem">
+      <div class="chips mt-0-5">
         <?php foreach($d['serie'] as $v): ?>
           <span class="chip"><?= $v ?></span>
         <?php endforeach; ?>
       </div>
     </div>
     <?php if (!empty($d['pasos'])): ?>
-    <details style="margin-top:1rem">
-      <summary style="cursor:pointer;font-size:.78rem;color:var(--muted);letter-spacing:.05em">Ver paso a paso</summary>
-      <div style="margin-top:.8rem;display:flex;flex-direction:column;gap:.3rem">
+    <details class="mt-1">
+      <summary class="summary-toggle">Ver paso a paso</summary>
+      <div class="details-body">
         <?php foreach($d['pasos'] as $p): ?>
-          <code style="font-size:.75rem;color:var(--muted);background:var(--bg);padding:.3em .7em;border-radius:5px"><?= htmlspecialchars($p) ?></code>
+          <code class="code-inline"><?= htmlspecialchars($p) ?></code>
         <?php endforeach; ?>
       </div>
     </details>
@@ -65,7 +65,7 @@ function renderFibonacci(array $d): void { ?>
     <?php if ($d['resultado'] !== null): ?>
     <div class="result animate">
       <p class="result-label">Factorial de <?= $d['n'] ?></p>
-      <p class="result-value" style="font-size:1.4rem;word-break:break-all"><?= $d['resultado'] ?></p>
+      <p class="result-value result-value-sm"><?= $d['resultado'] ?></p>
     </div>
     <?php endif; ?>
   </div>

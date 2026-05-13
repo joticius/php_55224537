@@ -30,12 +30,12 @@ function renderAcronimo(array $datos): void { ?>
                value="<?= $datos['frase'] ?>" autofocus>
       </div>
 
-      <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+      <div class="flex-gap">
         <button class="btn" type="submit">Convertir →</button>
         <?php if ($datos['acronimo']): ?>
-        <span style="font-size:.78rem;color:var(--muted)">Ejemplos:
-          <a href="?frase=As+Soon+As+Possible" style="color:var(--accent);text-decoration:none">ASAP</a> ·
-          <a href="?frase=Liquid-crystal+display" style="color:var(--accent);text-decoration:none">LCD</a>
+        <span class="text-muted">Ejemplos:
+          <a href="?frase=As+Soon+As+Possible" class="link-accent">ASAP</a> ·
+          <a href="?frase=Liquid-crystal+display" class="link-accent">LCD</a>
         </span>
         <?php endif; ?>
       </div>
@@ -45,15 +45,15 @@ function renderAcronimo(array $datos): void { ?>
     <div class="result animate">
       <p class="result-label">Acrónimo</p>
       <p class="result-value"><?= htmlspecialchars($datos['acronimo']) ?></p>
-      <p style="margin-top:.8rem;font-size:.78rem;color:var(--muted)">
-        Frase original: <span style="color:var(--text)"><?= $datos['frase'] ?></span>
+      <p class="text-muted mt-0-5">
+        Frase original: <span class="badge-text"><?= $datos['frase'] ?></span>
       </p>
     </div>
     <?php endif; ?>
   </div>
 
-  <div class="card" style="border-color:var(--border)">
-    <p style="font-size:.75rem;color:var(--muted);margin-bottom:.8rem;letter-spacing:.08em;text-transform:uppercase">Ejemplos clásicos</p>
+  <div class="card card-border">
+    <p class="section-title">Ejemplos clásicos</p>
     <?php
     $ejemplos = [
       'As Soon As Possible'       => 'ASAP',
@@ -62,9 +62,9 @@ function renderAcronimo(array $datos): void { ?>
       "Thank George It's Friday!" => 'TGIF',
     ];
     foreach ($ejemplos as $f => $a): ?>
-    <div style="display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.82rem">
-      <span style="color:var(--muted)"><?= htmlspecialchars($f) ?></span>
-      <span style="color:var(--accent);font-family:var(--font-h);font-weight:700"><?= $a ?></span>
+    <div class="row-fs">
+      <span class="text-muted"><?= htmlspecialchars($f) ?></span>
+      <span class="accent-strong"><?= $a ?></span>
     </div>
     <?php endforeach; ?>
   </div>
